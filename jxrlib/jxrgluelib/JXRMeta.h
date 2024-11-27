@@ -36,6 +36,16 @@
 #define UNREFERENCED_PARAMETER(P) { (P) = (P); }
 #endif
 
+#ifndef __in_ecount
+#include <specstrings.h>
+#ifdef SAL__in_ecount
+#define __in_ecount(size) SAL__in_ecount(size)
+#endif
+#ifdef SAL__out_ecount
+#define __out_ecount(size) SAL__out_ecount(size)
+#endif
+#endif
+
 //================================================================
 // Container
 //================================================================
