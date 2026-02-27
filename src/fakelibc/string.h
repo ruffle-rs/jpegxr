@@ -1,12 +1,8 @@
 #include <stddef.h>
 
-// TODO
-#define strlen(what) 1
-
-
-
-#define strcmp(S1, S2) 0
-#define strncmp(S1, S2, N) 0
+size_t strlen(const char *s);
+int strcmp(const char *l, const char *r);
+int strncmp(const char *_l, const char *_r, size_t n);
 
 void *memcpy(void *dest, const void * src, unsigned long n);
 

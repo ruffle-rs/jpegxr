@@ -421,3 +421,25 @@ char *strchr(const char *s, int c)
 	char *r = __strchrnul(s, c);
 	return *(unsigned char *)r == (unsigned char)c ? r : 0;
 }
+
+size_t strlen(const char *s)
+{
+	const char *a = s;
+	for (; *s; s++);
+	return s - a;
+}
+
+int strcmp(const char *l, const char *r)
+{
+	for (; *l == *r && *l; l++, r++);
+	return *(unsigned char *)l - *(unsigned char *)r;
+}
+
+int strncmp(const char *_l, const char *_r, size_t n)
+{
+	const unsigned char *l = (const unsigned char *)_l;
+	const unsigned char *r = (const unsigned char *)_r;
+	if (!n--) return 0;
+	for (; *l && *r && n && *l == *r; l++, r++, n--);
+	return *l - *r;
+}
