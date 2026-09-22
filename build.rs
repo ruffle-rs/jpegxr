@@ -116,6 +116,7 @@ fn main() {
         .allowlist_type("^(WMP|PK|ERR|BITDEPTH|BD_|BITDEPTH_BITS|COLORFORMAT).*")
         .clang_args(clang_args)
         .derive_eq(true)
+        .no_partialeq("^(tagPKStream|tagPKFactory|tagPKCodecFactory|tagPKFormatConverter)$")
         .size_t_is_usize(true)
         .parse_callbacks(Box::new(bindgen::CargoCallbacks::new()))
         .generate()
